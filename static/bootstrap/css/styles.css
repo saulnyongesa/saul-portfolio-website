@@ -102,10 +102,9 @@
     height: fit-content;
 }
 .about-img img {
-    width: 500px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
     margin: auto;
-    border-radius: 10px;
 }
 
 
