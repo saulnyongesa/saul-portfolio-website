@@ -33,7 +33,7 @@
     height: 50vh;
     width: 90%;
     margin: auto;
-    background-color: rgba(62,59,95,0.86);
+    background-color: #c2b99d;
 }
 .introduction .container .row div h2:hover{
     color: whitesmoke;
