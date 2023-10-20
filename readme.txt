@@ -1,7 +1,7 @@
 -----------------------
 # README
 -----------------------
-portfolioOne is a one page bootstrap 3 based resume/portfolio template.
+portfolio website is a one-page bootstrap 3-based resume/portfolio template.
 
 
 Template Info:
