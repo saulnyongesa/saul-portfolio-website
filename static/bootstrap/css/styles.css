@@ -33,7 +33,8 @@
     height: 50vh;
     width: 90%;
     margin: auto;
-    background-color: #c2b99d;
+    border-radius: 20px;
+    background-color: rgba(49, 49, 54, 0.86);
 }
 .introduction .container .row div h2:hover{
     color: whitesmoke;
@@ -66,7 +67,8 @@
     width: 90%;
     margin: auto;
     padding-bottom: 10px;
-   background-color: #c2b99d;
+    border-radius: 20px;
+    background-color: rgba(49, 49, 54, 0.86);
 }
 .about-me .section-heading{
     padding-top: 60px;
@@ -112,7 +114,8 @@
     min-height: 50vh;
     width: 90%;
     margin: auto;
-    background-color: #c2b99d;
+    border-radius: 20px;
+    background-color: rgba(49, 49, 54, 0.86);
 }
 .education .section-heading{
     padding-top: 60px;
@@ -155,7 +158,8 @@
     min-height: 50vh;
     width: 90%;
     margin: auto;
-    background-color: #c2b99d;
+     border-radius: 20px;
+    background-color: rgba(49, 49, 54, 0.86);
 }
 .skills .section-heading{
     padding-top: 60px;
@@ -232,7 +236,8 @@
     min-height: 50vh;
     width: 90%;
     margin: auto;
-    background-color: #c2b99d;
+     border-radius: 20px;
+    background-color: rgba(49, 49, 54, 0.86);
 }
 .experience .section-heading{
     padding-top: 60px;
@@ -267,7 +272,8 @@
     min-height: 50vh;
     width: 90%;
     margin: auto;
-    background-color: #c2b99d;
+     border-radius: 20px;
+    background-color: rgba(49, 49, 54, 0.86);
 }
 .profiles .section-heading{
     padding-top: 60px;
@@ -307,7 +313,8 @@
     min-height: 50vh;
     width: 90%;
     margin: auto;
-    background-color: #c2b99d;
+     border-radius: 20px;
+    background-color: rgba(49, 49, 54, 0.86);
 }
 .portfolio .section-heading{
     padding-top: 60px;
@@ -401,7 +408,8 @@
     width: 90%;
     margin: auto;
     padding-bottom: 20px;
-    background-color: #c2b99d;
+     border-radius: 20px;
+    background-color: rgba(49, 49, 54, 0.86);
 }
 .clients .section-heading{
     padding-top: 60px;
@@ -436,7 +444,8 @@
     width: 90%;
     margin: auto;
     padding-bottom: 20px;
-    background-color: #c2b99d;
+     border-radius: 20px;
+    background-color: rgba(49, 49, 54, 0.86);
 }
 .contacts .section-heading{
     padding-top: 60px;
