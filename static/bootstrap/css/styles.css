@@ -1,3 +1,6 @@
+section:hover{
+        background-color: rgb(70, 47, 19);
+}
 .header{
     height: fit-content;
     width: 90%;
