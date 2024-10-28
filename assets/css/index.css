@@ -3,7 +3,14 @@
     font-size: 16px;
     list-style: none;
 }
-
+nav{
+    background-color: #252f2d;
+}
+nav .navbar-brand{
+    padding-left: 10px;
+    color: white;
+    font-size: 24px;
+}
 .banner-section {
     width: 100%;
     float: left;
@@ -16,7 +23,7 @@
 .banner_title_main {
     width: 100%;
     float: left;
-    padding-left: 100px;
+    padding-left: 10px;
     padding-top: 100px;
 }
 
@@ -24,7 +31,7 @@
     width: 100%;
     float: left;
     font-size: 60px;
-    color: #fefefd;
+    color: #252f2d;
     font-weight: bold;
     padding-bottom: 0px;
     line-height: 70px;
@@ -34,7 +41,7 @@
     width: 100%;
     float: left;
     font-size: 24px;
-    color: #fefefd;
+    color: #252f2d;
 }
 
 .text-right {
