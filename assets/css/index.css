@@ -1,0 +1,224 @@
+/* Base Styles (Desktop) */
+* {
+    font-size: 16px;
+    list-style: none;
+}
+
+.banner-section {
+    width: 100%;
+    float: left;
+    background-image: url(../images/banner-bg.png);
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.banner_title_main {
+    width: 100%;
+    float: left;
+    padding-left: 100px;
+    padding-top: 100px;
+}
+
+.banner_title {
+    width: 100%;
+    float: left;
+    font-size: 60px;
+    color: #fefefd;
+    font-weight: bold;
+    padding-bottom: 0px;
+    line-height: 70px;
+}
+
+.banner_text {
+    width: 100%;
+    float: left;
+    font-size: 24px;
+    color: #fefefd;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.social_icon {
+    width: 100%;
+    float: right;
+    text-align: right;
+    padding-top: 100px;
+}
+
+.social_icon ul {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+    list-style: none;
+}
+
+.social_icon li {
+    margin: auto;
+}
+
+.social_icon li a {
+    float: left;
+    padding: 0px;
+    background-color: #b0b3b2;
+    color: #252f2d;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-right: 5px;
+    width: 35px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.social_icon li a:hover {
+    background-color: #ffffff;
+    color: #252f2d;
+}
+
+/* Tablet Styles */
+@media (max-width: 992px) {
+    .banner_title_main {
+        padding-left: 50px;
+        padding-top: 80px;
+    }
+
+    .banner_title {
+        font-size: 48px;
+        line-height: 60px;
+    }
+
+    .social_icon {
+        padding-top: 50px;
+        text-align: left;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 576px) {
+    .banner-section {
+        text-align: center;
+    }
+
+    .banner_title_main {
+        padding-left: 20px;
+        padding-top: 50px;
+    }
+
+    .banner_title {
+        font-size: 36px;
+        line-height: 45px;
+    }
+
+    .banner_text {
+        font-size: 20px;
+    }
+
+    .social_icon {
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .social_icon ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    .social_icon li a {
+        width: 30px;
+        font-size: 16px;
+        margin: 0 8px;
+    }
+}
+
+
+/* Blog Section Styling */
+.blog-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* Blog Cards Container */
+.blog-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+/* Blog Card Styling */
+.blog-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    max-width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-caption {
+    padding: 20px;
+}
+
+.blog-caption h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.blog-caption p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .blog-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* Footer section  */
+.footer-section {
+    min-height: 30vh;
+    padding: 30px;
+    background-color: #252f2d;
+}
+.footer-section .footer-icons{
+    width: 100%;
+}
+ 
+.footer-section .footer-icons ul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.footer-section .footer-icons ul li {
+    margin: auto;
+    display: flex;
+    text-align: left;
+    width: 100%;
+}
