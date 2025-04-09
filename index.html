@@ -4,98 +4,353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://drive.google.com/file/d/1-3MEsLuatkCviVCZCan3v6v6KQcfnciu/view?usp=sharing" type="image/x-icon">
-    <title>Saul Nyongesa Mupalia | Portfolio</title>
+    <title>Saul Nyongesa Mupalia | Web Developer Portfolio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* Sticky Navbar */
+        :root {
+            --primary-blue: #1a4b8c;
+            --secondary-blue: #2a75bb;
+            --light-blue: #e6f2ff;
+            --dark-blue: #0a2d56;
+            --accent-blue: #4da1ff;
+            --text-dark: #333333;
+            --text-light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+        
+        /* Navbar */
         .navbar {
+            background-color: var(--dark-blue) !important;
             position: sticky;
             top: 0;
             z-index: 1000;
-            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
         }
-
-        .navbar-scrolled {
-            background-color: rgba(0, 0, 0, 0.8) !important;
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+            font-size: 1.5rem;
         }
-
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
         /* Hero Section */
-        header {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            padding: 100px 0;
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
         }
-
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
-
-        .btn-light {
-            padding: 10px 20px;
-            font-weight: bold;
-        }
-
-        /* Center Content */
-        .text-center {
-            text-align: center;
-        }
-
-        /* Projects Section */
-        .card {
-            max-width: 350px;
-            margin: auto;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card-img-top {
-            height: 120px;
+        
+        .hero-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
             object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
         }
-
-        /* Services Icons */
-        .fa-3x {
-            margin-bottom: 15px;
+        
+        .hero-content h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
-
-        /* Contact Buttons */
-        .btn {
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Section Headings */
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 50px;
+            color: var(--dark-blue);
+            font-weight: 700;
+        }
+        
+        .section-heading:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-blue);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        #about {
+            background-color: white;
+            padding: 80px 0;
+        }
+        
+        .skill-badge {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
             margin: 5px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 500;
+            border: 1px solid var(--accent-blue);
         }
-
+        
+        .experience-item {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .experience-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background-color: var(--accent-blue);
+            border-radius: 50%;
+        }
+        
+        .experience-item:after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: -25px;
+            width: 1px;
+            background-color: #ddd;
+        }
+        
+        .experience-item:last-child:after {
+            display: none;
+        }
+        
+        /* Projects Section */
+        #projects {
+            background-color: var(--light-blue);
+            padding: 80px 0;
+        }
+        
+        .project-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+            background-color: white;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-image {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .project-links a {
+            margin-right: 15px;
+            color: var(--accent-blue);
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .tech-badge {
+            margin-right: 8px;
+            margin-bottom: 8px;
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+        }
+        
+        /* Services Section */
+        #services {
+            background-color: white;
+            padding: 80px 0;
+        }
+        
+        .service-card {
+            padding: 30px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-top: 4px solid var(--accent-blue);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            color: var(--accent-blue);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form .form-control {
+            padding: 12px 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        .contact-form .form-control:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 0.25rem rgba(77, 161, 255, 0.25);
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-blue);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 10px;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-btn:hover {
+            background-color: var(--accent-blue);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
         /* Footer */
         footer {
-            font-size: 0.9rem;
+            background-color: var(--dark-blue);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 30px 0;
         }
-
-        /* Dark Mode */
-        .dark-mode {
-            background-color: #121212;
-            color: #ffffff;
+        
+        .social-icon {
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            text-align: center;
         }
-
-        .dark-mode .navbar {
-            background-color: #1a1a1a !important;
+        
+        .social-icon:hover {
+            color: white;
+            background-color: var(--accent-blue);
+            transform: translateY(-3px);
         }
-
-        .dark-mode .card {
-            background-color: #1e1e1e;
-            color: #ffffff;
-        }
-
+        
         /* Back to Top Button */
         #back-to-top {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
             display: none;
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        #back-to-top:hover {
+            background-color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0 60px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-image {
+                width: 180px;
+                height: 180px;
+            }
         }
     </style>
 </head>
@@ -103,9 +358,9 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">Saul Mupalia</a>
+            <a class="navbar-brand" href="#">Saul Mupalia</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -124,174 +379,387 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="text-center text-white py-5">
-        <h1>Hello, I'm Saul Mupalia</h1>
-        <p class="typed-text p-4" style="height: 2vh;"></p>
-        <a href="https://drive.google.com/file/d/1-2KzFXN50S_uc_rFy6hI8ylj8TTANVA6/view?usp=sharing"
-            class="btn btn-light mt-3" download>Download CV</a>
+    <header class="hero-section">
+        <div class="container text-center">
+            <img src="assets/img/profile_image.png" alt="Saul Mupalia" class="hero-image">
+            <div class="hero-content">
+                <h1>Saul Nyongesa Mupalia</h1>
+                <p class="lead">Full Stack Web Developer specializing in Django and React</p>
+                <div class="typed-text mb-4" style="height: 20px;"></div>
+                <div class="mt-4">
+                    <a href="https://drive.google.com/file/d/1-2KzFXN50S_uc_rFy6hI8ylj8TTANVA6/view?usp=sharing"
+                        class="btn btn-light btn-lg px-4 py-2 me-2" download>
+                        <i class="fas fa-download me-2"></i>Download CV
+                    </a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg px-4 py-2">
+                        <i class="fas fa-paper-plane me-2"></i>Hire Me
+                    </a>
+                </div>
+            </div>
+        </div>
     </header>
 
     <!-- About Section -->
-    <section id="about" class="container my-5" data-aos="fade-up">
-        <div class="text-center mb-4">
-            <h2 class="fw-bold">About Me</h2>
-            <p class="lead">I specialize in web and mobile development using Python (Django), JavaScript (React Native),
-                and IoT solutions. Passionate about problem-solving and creating impactful tech solutions.</p>
-        </div>
-
-        <div class="row">
-            <!-- Skills Section -->
-            <div class="col-md-6">
-                <h3 class="fw-bold text-center"><i class="fas fa-tools text-primary"></i> Skills</h3>
-                <div class="progress mb-3">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 90%;">Python (Django)</div>
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-heading">About Me</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <p class="lead">I'm a passionate web developer with expertise in building modern, responsive web applications using Django and React.</p>
+                    <p>With 3+ years of experience, I've helped businesses and organizations establish their online presence through custom web solutions that are both functional and visually appealing.</p>
+                    <p>When I'm not coding, you can find me writing technical articles, contributing to open source projects, or exploring new web technologies.</p>
+                    
+                    <h4 class="mt-4 mb-3 fw-bold">My Skills</h4>
+                    <div>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">Django</span>
+                        <span class="skill-badge">Django REST Framework</span>
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">React</span>
+                        <span class="skill-badge">HTML5/CSS3</span>
+                        <span class="skill-badge">Bootstrap</span>
+                        <span class="skill-badge">PostgreSQL</span>
+                        <span class="skill-badge">Git</span>
+                        <span class="skill-badge">Docker</span>
+                        <span class="skill-badge">AWS Basics</span>
+                    </div>
                 </div>
-                <div class="progress mb-3">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 80%;">JavaScript (React)</div>
+                
+                <div class="col-lg-6">
+                    <div class="ps-lg-4">
+                        <h4 class="fw-bold mb-4"><i class="fas fa-briefcase me-2 text-primary"></i> Experience</h4>
+                        <div class="experience-item">
+                            <h5 class="fw-bold">Freelance Web Developer</h5>
+                            <p class="text-muted mb-1">2021 - Present</p>
+                            <p>Developed custom web applications for clients using Django and React, focusing on scalable and secure solutions.</p>
+                        </div>
+                        <div class="experience-item">
+                            <h5 class="fw-bold">ICT Support Staff Intern</h5>
+                            <p class="text-muted mb-1">Equip Africa Kitale, 2024</p>
+                            <p>Provided technical support, maintained systems, and assisted in network administration.</p>
+                        </div>
+                        <div class="experience-item">
+                            <h5 class="fw-bold">Teaching Attendance System Developer</h5>
+                            <p class="text-muted mb-1">2024, 2025</p>
+                            <p>Created a Django-based system for recording teaching hours for college trainers.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="progress mb-3">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 70%;">Database Management</div>
-                </div>
-            </div>
-
-            <!-- Experience Section -->
-            <div class="col-md-6">
-                <h3 class="fw-bold text-center"><i class="fas fa-briefcase text-primary"></i> Experience</h3>
-                <ul class="list-group">
-                    <li class="list-group-item"><i class="fas fa-laptop-code text-danger"></i> Freelance Web Developer
-                        (Django)</li>
-                    <li class="list-group-item"><i class="fas fa-network-wired text-primary"></i> ICT Support Staff
-                        Intern, Equip Africa Kitale</li>
-                    <li class="list-group-item"><i class="fas fa-chalkboard-teacher text-success"></i> Developed
-                        Teaching Attendance Register System</li>
-                </ul>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="container py-5" data-aos="fade-up">
-        <h2 class="text-center">Projects</h2>
-        <p class="lead text-center">The source code is on my GitHub profile.</p>
-        <div class="row justify-content-center">
-            <div class="col-md-4 col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Learning Material Sharing System</h5>
-                        <p class="card-text">A web application for students to access study materials.</p>
-                        <a href="https://github.com/saulnyongesa" class="btn btn-outline-dark"><i
-                                class="fab fa-github"></i> GitHub</a>
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-heading">My Projects</h2>
+            <p class="lead text-center mb-5">Here are some of my recent web development projects</p>
+            
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card card h-100" data-aos="fade-up">
+                        <img src="assets/img/learning.png" class="project-image card-img-top" alt="Project Screenshot">
+                        <div class="card-body">
+                            <h4 class="card-title fw-bold">Learning Material Sharing System</h4>
+                            <p class="card-text">A comprehensive web application that allows students to access and share study materials, with user authentication and file management.</p>
+                            <div class="project-links mt-3">
+                                <a href="https://github.com/saulnyongesa/med-learn-a.git" target="_blank" class="text-decoration-none">
+                                    <i class="fab fa-github me-1"></i> View Code
+                                </a>
+                                <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#project1Modal">
+                                    <i class="fas fa-info-circle me-1"></i> Details
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <span class="badge tech-badge">Django</span>
+                            <span class="badge tech-badge">Python</span>
+                            <span class="badge tech-badge">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card card h-100" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets/img/society.png" class="project-image card-img-top" alt="Project Screenshot">
+                        <div class="card-body">
+                            <h4 class="card-title fw-bold">Society Management System</h4>
+                            <p class="card-text">A Django-based system for managing housing societies, including member management, billing, and communication features.</p>
+                            <div class="project-links mt-3">
+                                <a href="https://github.com/saulnyongesa/E-society.git" target="_blank" class="text-decoration-none">
+                                    <i class="fab fa-github me-1"></i> View Code
+                                </a>
+                                <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#project2Modal">
+                                    <i class="fas fa-info-circle me-1"></i> Details
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <span class="badge tech-badge">Django</span>
+                            <span class="badge tech-badge">Python</span>
+                            <span class="badge tech-badge">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card card h-100" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets/img/attendance.png" class="project-image card-img-top" alt="Project Screenshot">
+                        <div class="card-body">
+                            <h4 class="card-title fw-bold">Teaching Attendance Register</h4>
+                            <p class="card-text">A system for recording teaching hours in colleges, with reporting features and admin dashboard for management.</p>
+                            <div class="project-links mt-3">
+                                <a href="https://tutor-time-1db9b1a258a8.herokuapp.com/" target="_blank" class="text-decoration-none">
+                                    <i class="fab fa-link me-1"></i> View Site
+                                </a>
+                                <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#project3Modal">
+                                    <i class="fas fa-info-circle me-1"></i> Details
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <span class="badge tech-badge">Django</span>
+                            <span class="badge tech-badge">Python</span>
+                            <span class="badge tech-badge">PostgreSQL</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Society Management System</h5>
-                        <p class="card-text">A Django-based system for managing societies efficiently.</p>
-                        <a href="https://github.com/saulnyongesa" class="btn btn-outline-dark"><i
-                                class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Teaching Attendance Register</h5>
-                        <p class="card-text">A Django-based system for recording teaching hours for trainers in
-                            colleges.</p>
-                        <a href="https://github.com/saulnyongesa" class="btn btn-outline-dark"><i
-                                class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
+            
+            <div class="text-center mt-4">
+                <a href="https://github.com/saulnyongesa" class="btn btn-primary btn-lg" target="_blank">
+                    <i class="fab fa-github me-2"></i>View All Projects
+                </a>
             </div>
         </div>
     </section>
+
+    <!-- Project Modals -->
+    <div class="modal fade" id="project1Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Learning Material Sharing System</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/img/learning.png" class="img-fluid mb-3" alt="Project Screenshot">
+                    <h6>Project Description:</h6>
+                    <p>This web application was developed to help students share and access study materials easily. It includes features like:</p>
+                    <ul>
+                        <li>User authentication and authorization</li>
+                        <li>File upload and download functionality</li>
+                        <li>Search and categorization of materials</li>
+                        <li>Rating system for materials</li>
+                        <li>Admin dashboard for content management</li>
+                    </ul>
+                    <h6>Technologies Used:</h6>
+                    <p>Django, Python, Bootstrap, PostgreSQL</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://github.com/saulnyongesa/med-learn-a.git" class="btn btn-primary" target="_blank">
+                        <i class="fab fa-github me-1"></i> View on GitHub
+                    </a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="project2Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Society Management System</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/img/society.png" class="img-fluid mb-3" alt="Project Screenshot">
+                    <h6>Project Description:</h6>
+                    <p>A comprehensive system for managing housing societies with features including:</p>
+                    <ul>
+                        <li>Member registration and management</li>
+                        <li>Billing and payment tracking</li>
+                        <li>Notice board and announcements</li>
+                        <li>Complaint management system</li>
+                        <li>Document sharing portal</li>
+                    </ul>
+                    <h6>Technologies Used:</h6>
+                    <p>Django, Python, JavaScript, SQLite</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://github.com/saulnyongesa/E-society.git" class="btn btn-primary" target="_blank">
+                        <i class="fab fa-github me-1"></i> View on GitHub
+                    </a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="project3Modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Teaching Attendance Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="assets/img/attendance.png" class="img-fluid mb-3" alt="Project Screenshot">
+                    <h6>Project Description:</h6>
+                    <p>This system was designed for colleges to track teaching hours with features like:</p>
+                    <ul>
+                        <li>Lecturer login and attendance recording</li>
+                        <li>Admin dashboard for monitoring</li>
+                        <li>Automated reporting and analytics</li>
+                        <li>Export functionality for records</li>
+                        <li>Data visualization with charts</li>
+                    </ul>
+                    <h6>Technologies Used:</h6>
+                    <p>Django, Python, PostgreSQL, Chart.js</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://github.com/saulnyongesa/TutorTime.git" class="btn btn-primary" target="_blank">
+                        <i class="fab fa-github me-1"></i> View on GitHub
+                    </a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Services Section -->
-    <section id="services" class="bg-light py-5" data-aos="fade-up">
+    <section id="services" class="py-5">
         <div class="container">
-            <h2 class="text-center">Services</h2>
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <i class="fas fa-code fa-3x text-primary"></i>
-                    <h4>Web Development</h4>
-                    <p>Building scalable and secure web applications using Django and React.</p>
+            <h2 class="text-center section-heading">My Services</h2>
+            <p class="lead text-center mb-5">Professional web development services I offer</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4 class="fw-bold">Custom Web Development</h4>
+                        <p>Tailored web applications built with Django and React to meet your specific business requirements.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-primary me-2"></i> Full-stack development</li>
+                            <li><i class="fas fa-check text-primary me-2"></i> Responsive design</li>
+                            <li><i class="fas fa-check text-primary me-2"></i> Custom functionality</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <i class="fas fa-mobile-alt fa-3x text-primary"></i>
-                    <h4>Mobile App Development</h4>
-                    <p>Creating cross-platform mobile applications with React Native.</p>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h4 class="fw-bold">API Development</h4>
+                        <p>RESTful API development with Django REST Framework for web and mobile applications.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-primary me-2"></i> REST API design</li>
+                            <li><i class="fas fa-check text-primary me-2"></i> Authentication</li>
+                            <li><i class="fas fa-check text-primary me-2"></i> Documentation</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <i class="fas fa-microchip fa-3x text-primary"></i>
-                    <h4>IoT Solutions</h4>
-                    <p>Developing smart IoT solutions for real-world applications.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="container py-5" data-aos="fade-up">
-        <h2 class="text-center">Testimonials</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text">"Saul is an amazing developer! He delivered the project on time and exceeded our expectations."</p>
-                        <p class="text-muted">- Client Name</p>
+                
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4 class="fw-bold">Maintenance & Support</h4>
+                        <p>Ongoing maintenance, updates, and support for your existing web applications.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-primary me-2"></i> Bug fixes</li>
+                            <li><i class="fas fa-check text-primary me-2"></i> Performance optimization</li>
+                            <li><i class="fas fa-check text-primary me-2"></i> Security updates</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <!-- Add more testimonials -->
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="container py-5" data-aos="fade-up">
-        <h2 class="text-center">Blog</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Article Title</h5>
-                        <p class="card-text">A brief description of the article.</p>
-                        <a href="#" class="btn btn-outline-primary">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Add more articles -->
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="container my-5 text-center" data-aos="fade-up">
-        <h2>Contact Me</h2>
-        <p class="lead">Let's work together! Feel free to reach out.</p>
-        <div>
-            <a href="mailto:saulnyongesa4@gmail.com" class="btn btn-outline-primary"><i class="fas fa-envelope"></i>
-                Email</a>
-            <a href="tel:0708560861" class="btn btn-outline-secondary"><i class="fas fa-phone"></i> Call</a>
-            <a href="https://www.linkedin.com/in/saul-mupalia-b01345237/" class="btn btn-outline-info"><i
-                    class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="https://github.com/saulnyongesa" class="btn btn-outline-dark"><i class="fab fa-github"></i>
-                GitHub</a>
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-heading text-white">Get In Touch</h2>
+            <p class="lead text-center text-white mb-5">Have a project in mind or want to discuss opportunities?</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form id="contactForm" class="contact-form">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="name" required placeholder="John Doe">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" required placeholder="Email Address">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" required placeholder="Subject of your message">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="5" required placeholder="Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="mailto:saulnyongesa4@gmail.com" class="contact-btn">
+                    <i class="fas fa-envelope me-2"></i> Email Me
+                </a>
+                <a href="tel:0708560861" class="contact-btn">
+                    <i class="fas fa-phone me-2"></i> Call Me
+                </a>
+                <a href="https://www.linkedin.com/in/saul-mupalia-b01345237/" class="contact-btn" target="_blank">
+                    <i class="fab fa-linkedin me-2"></i> LinkedIn
+                </a>
+                <a href="https://github.com/saulnyongesa" class="contact-btn" target="_blank">
+                    <i class="fab fa-github me-2"></i> GitHub
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4">
-        <div class="mb-3">
-            <a href="https://www.linkedin.com/in/saul-mupalia-b01345237/" class="text-white me-3"><i class="fab fa-linkedin fa-2x"></i></a>
-            <a href="https://github.com/saulnyongesa" class="text-white me-3"><i class="fab fa-github fa-2x"></i></a>
-            <a href="mailto:saulnyongesa4@gmail.com" class="text-white"><i class="fas fa-envelope fa-2x"></i></a>
+    <footer class="py-4">
+        <div class="container text-center">
+            <div class="mb-4">
+                <a href="https://www.linkedin.com/in/saul-mupalia-b01345237/" class="social-icon" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/saulnyongesa" class="social-icon" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:saulnyongesa4@gmail.com" class="social-icon">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:0708560861" class="social-icon">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+            <p class="mb-0">&copy; <span id="year"></span> Saul Nyongesa Mupalia. All rights reserved.</p>
         </div>
-        <p>&copy; <span id="year"></span> Saul Mupalia. All rights reserved.</p>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="btn btn-primary btn-lg rounded-circle">
+    <button id="back-to-top" class="btn">
         <i class="fas fa-arrow-up"></i>
     </button>
 
@@ -301,14 +769,21 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Initialize AOS
-        AOS.init();
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
 
         // Typed.js for Hero Section
         var typed = new Typed('.typed-text', {
-            strings: ["Software Developer", "Web  And Mobile App Developer", "IoT Enthusiast", "Part-Time Writer"],
-            typeSpeed: 10,
-            backSpeed: 40,
-            loop: true
+            strings: ["Web Developer", "Django Specialist", "React Enthusiast", "Problem Solver", "Full Stack Developer"],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|',
+            autoInsertCss: true
         });
 
         // Smooth Scroll
@@ -337,8 +812,24 @@
 
         darkModeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
-            darkModeToggle.querySelector('i').classList.toggle('fa-sun');
+            const icon = darkModeToggle.querySelector('i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+            
+            // Save preference to localStorage
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
         });
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.querySelector('i').classList.remove('fa-moon');
+            darkModeToggle.querySelector('i').classList.add('fa-sun');
+        }
 
         // Back to Top Button
         const backToTopButton = document.getElementById('back-to-top');
@@ -357,6 +848,13 @@
 
         // Update Year in Footer
         document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
     </script>
 </body>
 
